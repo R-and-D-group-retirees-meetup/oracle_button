@@ -16,7 +16,7 @@ const setOra = () => {
   img.src = imgURL;
   img.setAttribute("height", "64");
   img.setAttribute("width", "64");
-  img.setAttribute("style", "position:absolute; bottom:0%; right:0%; position: fixed;");
+  img.setAttribute("style", "position:absolute; bottom:0%; right:0%; position: fixed; z-index: 2147483647;");
   const element = body.appendChild(img);
   addClickEvent(body, element);
 };
