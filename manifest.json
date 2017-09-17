@@ -1,0 +1,18 @@
+{
+  "name": "Oracle Button",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Oracle Button with TOHOKU KIRITAN",
+  "icons": {
+    "16": "icons/ora16.png",
+    "48": "icons/ora48.png",
+    "128": "icons/ora128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["ora_button.js"]
+    }
+  ],
+  "web_accessible_resources": ["icons/*.png", "sounds/*.wav"]
+}
