@@ -2,10 +2,9 @@
 
 const addClickEvent = (body, element) => {
   element.addEventListener("click", () => {
-    const audioURL = chrome.extension.getURL("sounds/oracle.wav");
-    const audio = new Audio();
-    audio.src = audioURL;
-    audio.play();
+    chrome.runtime.sendMessage({message: ""}, () => {
+      "sended";
+    });
   });
 };
 
@@ -20,5 +19,6 @@ const setOra = () => {
   const element = body.appendChild(img);
   addClickEvent(body, element);
 };
+
 
 setOra();

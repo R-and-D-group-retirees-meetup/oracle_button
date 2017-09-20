@@ -8,11 +8,22 @@
     "48": "icons/ora48.png",
     "128": "icons/ora128.png"
   },
+  "background": {
+    "scripts": ["src/background.js"],
+    "persistent": false
+  },
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
       "js": ["ora_button.js"]
     }
   ],
-  "web_accessible_resources": ["icons/*.png", "sounds/*.wav"]
+  "browser_action": {
+    "default_icon": "icons/ora48.png",
+    "default_popup": "views/popup.html"
+  },
+  "web_accessible_resources": ["icons/*.png", "sounds/*.wav"],
+  "permissions": [
+    "tabs"
+  ]
 }
