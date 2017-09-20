@@ -2,7 +2,7 @@
   "name": "Oracle Button",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Oracle Button with TOHOKU KIRITAN",
+  "description": "Oracle Button with VOICEROIDs",
   "icons": {
     "16": "icons/ora16.png",
     "48": "icons/ora48.png",
