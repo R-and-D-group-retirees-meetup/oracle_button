@@ -1,0 +1,7 @@
+.voice-select div {
+  width: 200px;
+}
+
+.voice-select div label {
+  cursor: pointer;
+}
