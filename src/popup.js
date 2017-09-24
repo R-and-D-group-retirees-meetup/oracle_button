@@ -1,3 +1,5 @@
+const ORACLE = "https://www.oracle.com";
+
 const checkCurrentVoice = () => {
   const currentVoice = chrome.extension.getBackgroundPage().getCurrentVoice();
   const currentRadio = document.querySelector(`input[value="${currentVoice}"]`);
@@ -14,6 +16,19 @@ const bindClickEvents = () => {
   });
 };
 
+const bindEmergencyOracleButtonEvent = () => {
+  document.getElementById("emergency-oracle").addEventListener("click", () => {
+    chrome.windows.getAll({populate:true}, (windows) => {
+      windows.forEach((window) => {
+        window.tabs.forEach((tab) => {
+          chrome.tabs.update(tab.id, {url: ORACLE});
+        });
+      });
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   checkCurrentVoice();
+  bindEmergencyOracleButtonEvent();
 });
