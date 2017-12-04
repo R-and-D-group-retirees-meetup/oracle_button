@@ -5,3 +5,20 @@
 .voice-select div label {
   cursor: pointer;
 }
+
+.btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: red;
+    color: #FFF;
+    border-bottom: solid 4px #6d1e1e;
+    border-radius: 3px;
+}
+.btn:active {
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    border-bottom: none;
+}
