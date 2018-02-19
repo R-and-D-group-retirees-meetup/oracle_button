@@ -1,3 +1,5 @@
+"use strict";
+
 const ORACLE = "https://www.oracle.com";
 
 const checkCurrentVoice = () => {

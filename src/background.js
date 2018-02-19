@@ -1,8 +1,11 @@
+"use strict";
+
 let current = "kiritan";
 
 function getCurrentVoice() {
 	return current;
 }
+
 function setCurrentVoice(selected) {
 	current = selected;
 }
