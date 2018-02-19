@@ -9,7 +9,7 @@ const addClickEvent = (body, element) => {
 };
 
 const setOra = () => {
-  const imgURL = chrome.extension.getURL("icons/ora128.png");
+  const imgURL = chrome.extension.getURL("icons/ora00128.png");
   const body = document.getElementsByTagName("body")[0];
   const img = document.createElement("img");
   img.src = imgURL;
