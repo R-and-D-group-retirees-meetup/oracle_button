@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 const addClickEvent = (body, element) => {
   element.addEventListener("click", () => {
