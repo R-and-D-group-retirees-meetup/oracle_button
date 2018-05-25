@@ -30,7 +30,25 @@ const bindEmergencyOracleButtonEvent = () => {
   });
 }
 
+const checkCurrentOracleButtonVisibility = () => {
+  const currentVisibility = chrome.extension.getBackgroundPage().getOracleButtonVisibile();
+  const checkBox = document.querySelector(`input[name="visibility"]`);
+  checkBox.checked = !currentVisibility;
+  toggleOracleButton(checkBox);
+};
+
+const toggleOracleButton = (checkBox) => {
+  checkBox.addEventListener("change", () => {
+    const backgroundPage = chrome.extension.getBackgroundPage();
+    const currentVisibility = backgroundPage.getOracleButtonVisibile();
+    const shouldBeVisible = !currentVisibility;
+    
+    backgroundPage.setOracleButtonVisible(shouldBeVisible);
+  });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   checkCurrentVoice();
+  checkCurrentOracleButtonVisibility();
   bindEmergencyOracleButtonEvent();
 });

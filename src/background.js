@@ -1,6 +1,7 @@
 "use strict";
 
 let current = "kiritan";
+let oracleButtonVisible = true;
 
 function getCurrentVoice() {
 	return current;
@@ -8,6 +9,20 @@ function getCurrentVoice() {
 
 function setCurrentVoice(selected) {
 	current = selected;
+}
+
+function getOracleButtonVisibile() {
+	return oracleButtonVisible;
+}
+
+function setOracleButtonVisible(shouldBeVisible) {
+	
+	chrome.tabs.getSelected(null, (tab) => {
+		chrome.tabs.sendMessage(tab.id, {visibility: shouldBeVisible}, (response) => {
+				console.log("set");
+				oracleButtonVisible = shouldBeVisible;
+			});
+	});
 }
 
 function say() {
