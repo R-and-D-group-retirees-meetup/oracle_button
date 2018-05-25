@@ -41,6 +41,13 @@ function say() {
 
 chrome.runtime.onMessage.addListener(
   (request, sender, sendResponse) => {
-    say();
-    sendResponse(true);
+		if (request.message === "say") {
+			say();
+			sendResponse(true);
+		} else if (request.message === "initVisibility") {
+			sendResponse(true);
+			sendToggleMessage(getOracleButtonVisibile(), () => {
+					return;
+			});
+		}
 });

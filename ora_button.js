@@ -2,7 +2,7 @@
 
 const addClickEvent = (body, element) => {
   element.addEventListener("click", () => {
-    chrome.runtime.sendMessage({message: ""}, () => {
+    chrome.runtime.sendMessage({message: "say"}, () => {
       "sended";
     });
   });
@@ -21,8 +21,6 @@ const setOra = () => {
   addClickEvent(body, element);
 };
 
-setOra();
-
 const toggleOra = (shouldBeVisible) => {
   const oracleButton = document.getElementById("oracle-button");
   if (shouldBeVisible) {
@@ -38,4 +36,9 @@ chrome.extension.onMessage.addListener((request, sender, sendResponse) => {
     toggleOra(request.visibility);
   }
   sendResponse(true);
+});
+
+setOra();
+chrome.runtime.sendMessage({message: "initVisibility"}, () => {
+  "sended";
 });
