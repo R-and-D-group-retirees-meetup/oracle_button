@@ -31,7 +31,6 @@ const toggleOra = (shouldBeVisible) => {
 };
 
 chrome.extension.onMessage.addListener((request, sender, sendResponse) => {
-  console.log(request);
   if (request.hasOwnProperty("visibility")) {
     toggleOra(request.visibility);
   }
