@@ -16,14 +16,21 @@ function getOracleButtonVisibile() {
 }
 
 function setOracleButtonVisible(shouldBeVisible) {
-	
-	chrome.tabs.getSelected(null, (tab) => {
-		chrome.tabs.sendMessage(tab.id, {visibility: shouldBeVisible}, (response) => {
-				console.log("set");
-				oracleButtonVisible = shouldBeVisible;
-			});
+	oracleButtonVisible = shouldBeVisible;
+	sendToggleMessage(shouldBeVisible, () => {
+			return;
 	});
 }
+
+function sendToggleMessage(shouldBeVisible, callback) {
+	chrome.windows.getAll({populate:true}, (windows) => {
+		windows.forEach((window) => {
+			window.tabs.forEach((tab) => {
+				chrome.tabs.sendMessage(tab.id, {visibility: shouldBeVisible},callback);
+			});
+		});
+	});
+};
 
 function say() {
 	const audioURL = chrome.extension.getURL(`sounds/${current}/oracle.wav`);
