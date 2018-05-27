@@ -31,7 +31,7 @@ const bindEmergencyOracleButtonEvent = () => {
 }
 
 const checkCurrentOracleButtonVisibility = () => {
-  const currentVisibility = chrome.extension.getBackgroundPage().getOracleButtonVisibile();
+  const currentVisibility = chrome.extension.getBackgroundPage().getOracleButtonVisibility();
   const checkBox = document.querySelector(`input[name="visibility"]`);
   checkBox.checked = !currentVisibility;
   toggleOracleButton(checkBox);
@@ -40,10 +40,10 @@ const checkCurrentOracleButtonVisibility = () => {
 const toggleOracleButton = (checkBox) => {
   checkBox.addEventListener("change", () => {
     const backgroundPage = chrome.extension.getBackgroundPage();
-    const currentVisibility = backgroundPage.getOracleButtonVisibile();
+    const currentVisibility = backgroundPage.getOracleButtonVisibility();
     const shouldBeVisible = !currentVisibility;
-    
-    backgroundPage.setOracleButtonVisible(shouldBeVisible);
+
+    backgroundPage.setOracleButtonVisiblity(shouldBeVisible);
   });
 };
 

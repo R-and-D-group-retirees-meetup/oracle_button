@@ -1,7 +1,7 @@
 "use strict";
 
 let current = "kiritan";
-let oracleButtonVisible = true;
+let isOracleButtonVisible = true;
 
 function getCurrentVoice() {
 	return current;
@@ -11,12 +11,12 @@ function setCurrentVoice(selected) {
 	current = selected;
 }
 
-function getOracleButtonVisibile() {
-	return oracleButtonVisible;
+function getOracleButtonVisibility() {
+	return isOracleButtonVisible;
 }
 
-function setOracleButtonVisible(shouldBeVisible) {
-	oracleButtonVisible = shouldBeVisible;
+function setOracleButtonVisiblity(shouldBeVisible) {
+	isOracleButtonVisible = shouldBeVisible;
 	sendToggleMessage(shouldBeVisible, () => {
 			return;
 	});
@@ -46,7 +46,7 @@ chrome.runtime.onMessage.addListener(
 			sendResponse(true);
 		} else if (request.message === "initVisibility") {
 			sendResponse(true);
-			sendToggleMessage(getOracleButtonVisibile(), () => {
+			sendToggleMessage(getOracleButtonVisibility(), () => {
 					return;
 			});
 		}
