@@ -8,6 +8,14 @@
   "parserOptions": {
     "sourceType": "module"
   },
+  "overrides": {
+    "files": [
+      "src/background.js"
+    ],
+    "rules": {
+      "no-unused-vars": "off"
+    }
+  },
   "rules": {
     "comma-spacing": ["error", { "before": false, "after": true }],
     "curly": ["error", "all"],
