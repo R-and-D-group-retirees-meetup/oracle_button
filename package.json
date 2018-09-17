@@ -2,8 +2,8 @@
   "name": "oracle_button",
   "version": "no-release",
   "scripts": {
-    "eslint": "eslint -c .eslintrc.json \"./**/*.js\"",
-    "eslint-fix": "eslint --fix -c .eslintrc.json \"./**/*.js\""
+    "eslint": "eslint -c .eslintrc.json \"./app/**/*.js\"",
+    "eslint-fix": "eslint --fix -c .eslintrc.json \"./app/**/*.js\""
   },
   "license": "MIT",
   "devDependencies": {
