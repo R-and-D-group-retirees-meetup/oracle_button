@@ -20,7 +20,7 @@ const bindEmergencyOracleButtonEvent = () => {
   document.getElementById("emergency-oracle").addEventListener("click", () => {
     chrome.extension.getBackgroundPage().emergencyOracle();
   });
-}
+};
 
 const checkCurrentOracleButtonVisibility = () => {
   const currentVisibility = chrome.extension.getBackgroundPage().getOracleButtonVisibility();
@@ -37,7 +37,7 @@ const toggleOracleButton = (checkBox) => {
 
     backgroundPage.setOracleButtonVisiblity(shouldBeVisible);
     backgroundPage.sendToggleMessage(shouldBeVisible, () => {
-        return;
+      return;
     });
   });
 };
