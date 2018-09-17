@@ -1,7 +1,5 @@
 "use strict";
 
-const ORACLE = "https://www.oracle.com";
-
 const checkCurrentVoice = () => {
   const currentVoice = chrome.extension.getBackgroundPage().getCurrentVoice();
   const currentRadio = document.querySelector(`input[value="${currentVoice}"]`);
