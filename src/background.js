@@ -1,17 +1,29 @@
 "use strict";
 
-const DEFAULT_VOICE = "kiritan";
+/**
+ * @returns {string}
+ */
+function getLocalStorageKey() {
+	return "oracle_button_config";
+}
 
 /**
- * @type {Config}
+ * @returns {string}
  */
-const DEFAULT_CONFIG = {
-	voice: "kiritan",
-	isOracleButtonVisible: true
-};
-Object.freeze(DEFAULT_CONFIG);
+function getDefaultVoice() {
+	return "kiritan";
+}
 
-const LOCAL_STORAGE_KEY = "oracle_button_config";
+/**
+ * @return {Config}
+ */
+function getDefaultConfig() {
+	return {
+		voice: getDefaultVoice(),
+		isOracleButtonVisible: true
+	}
+}
+
 /**
  * 
  * @param {Object} config 
@@ -25,17 +37,18 @@ function isValidConfig(config) {
  * @returns {Config}
  */
 function getConfig() {
-	const config = localStorage.getItem(LOCAL_STORAGE_KEY);
+	const config = localStorage.getItem(getLocalStorageKey());
+	const defaultConfig = getDefaultConfig();
 	if (!config) {
-		return DEFAULT_CONFIG;
+		return defaultConfig;
 	}
 
 	try {
 		const parsedConfig = JSON.parse(config);
-		return isValidConfig(parsedConfig) ? parsedConfig : DEFAULT_CONFIG;
+		return isValidConfig(parsedConfig) ? parsedConfig : defaultConfig;
 	} catch {
 		console.warn("Unexpected Config structure");
-		return  DEFAULT_CONFIG;
+		return  defaultConfig;
 	}
 	
 }
@@ -44,7 +57,7 @@ function getConfig() {
  * @param {Config} config
  */
 function setConfig(config) {
-	localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(config));
+	localStorage.setItem(getLocalStorageKey(), JSON.stringify(config));
 }
 
 /**
