@@ -10,7 +10,7 @@
   },
   "overrides": {
     "files": [
-      "src/background.js"
+      "app/src/background.js"
     ],
     "rules": {
       "no-unused-vars": "off"

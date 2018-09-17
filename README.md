@@ -1,5 +1,5 @@
 # 何
-VOICEROIDたちがOracleを読み上げてくれるボタンを追加するChrome Extentionです。
+VOICEROIDたちがOracleを読み上げてくれるボタンを追加するChrome Extensionです。
 VOICEROIDたちにOracleを読み上げてもらいたい際にご利用ください。
 
 # 使
