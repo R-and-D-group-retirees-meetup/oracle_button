@@ -1,6 +1,12 @@
 "use strict";
 
 /**
+ * @typedef {Object} Config
+ * @property {string} voice
+ * @property {boolean} isOracleButtonVisible
+ */
+
+/**
  * @returns {string}
  */
 function getLocalStorageKey() {
