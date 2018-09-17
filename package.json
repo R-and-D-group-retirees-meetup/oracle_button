@@ -1,6 +1,5 @@
 {
   "name": "oracle_button",
-  "version": "no-release",
   "scripts": {
     "eslint": "eslint -c .eslintrc.json \"./app/**/*.js\"",
     "eslint-fix": "eslint --fix -c .eslintrc.json \"./app/**/*.js\"",
