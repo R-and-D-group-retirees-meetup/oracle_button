@@ -25,5 +25,6 @@
   "web_accessible_resources": ["icons/*.png", "sounds/*.wav"],
   "permissions": [
     "tabs"
-  ]
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
