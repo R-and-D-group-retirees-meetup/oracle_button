@@ -44,6 +44,9 @@ const toggleOracleButton = (checkBox) => {
     const shouldBeVisible = !currentVisibility;
 
     backgroundPage.setOracleButtonVisiblity(shouldBeVisible);
+    backgroundPage.sendToggleMessage(shouldBeVisible, () => {
+        return;
+    });
   });
 };
 

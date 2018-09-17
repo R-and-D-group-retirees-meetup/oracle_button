@@ -77,14 +77,14 @@ function getOracleButtonVisibility() {
 	return getConfig().isOracleButtonVisible;
 }
 
+/**
+ * @param {boolean} shouldBeVisible
+ */
 function setOracleButtonVisiblity(shouldBeVisible) {
 	const config = getConfig();
 	setConfig({
 		voice: config.voice,
 		isOracleButtonVisible: shouldBeVisible
-	});
-	sendToggleMessage(shouldBeVisible, () => {
-			return;
 	});
 }
 
