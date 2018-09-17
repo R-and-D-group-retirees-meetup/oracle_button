@@ -1,22 +1,23 @@
 "use strict";
 
-let current = "kiritan";
-let isOracleButtonVisible = true;
+const DEFAULT_VOICE = "kiritan";
 
 function getCurrentVoice() {
-	return current;
+	const current = localStorage.current;
+	return current ? current : DEFAULT_VOICE;
 }
 
 function setCurrentVoice(selected) {
-	current = selected;
+	localStorage.current = selected;
 }
 
 function getOracleButtonVisibility() {
-	return isOracleButtonVisible;
+	const isOracleButtonVisible = localStorage.isOracleButtonVisible;
+	return isOracleButtonVisible ? isOracleButtonVisible : true;
 }
 
 function setOracleButtonVisiblity(shouldBeVisible) {
-	isOracleButtonVisible = shouldBeVisible;
+	localStorage.isOracleButtonVisible = shouldBeVisible;
 	sendToggleMessage(shouldBeVisible, () => {
 			return;
 	});
@@ -33,7 +34,7 @@ function sendToggleMessage(shouldBeVisible, callback) {
 };
 
 function say() {
-	const audioURL = chrome.extension.getURL(`sounds/${current}/oracle.wav`);
+	const audioURL = chrome.extension.getURL(`sounds/${getCurrentVoice()}/oracle.wav`);
 	const audio = new Audio();
 	audio.src = audioURL;
 	audio.play();
