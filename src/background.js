@@ -48,7 +48,7 @@ function getConfig() {
 		return isValidConfig(parsedConfig) ? parsedConfig : defaultConfig;
 	} catch {
 		alert("EMERGENCY!! Unexpected Config structureeeeeeeaaaaahhhh!!!!!!!");
-		setConfig(defaultConfig);
+		localStorage.removeItem(getLocalStorageKey());
 		emergencyOracle();
 		return defaultConfig;
 	}
@@ -56,10 +56,13 @@ function getConfig() {
 }
 
 /**
- * @param {Config} config
+ * @param {string} key
+ * @param {any} value
  */
-function setConfig(config) {
-	localStorage.setItem(getLocalStorageKey(), JSON.stringify(config));
+function setConfig(key, value) {
+	const currentConfig = getConfig();
+	currentConfig[key] = value;
+	localStorage.setItem(getLocalStorageKey(), JSON.stringify(currentConfig));
 }
 
 /**
@@ -74,11 +77,7 @@ function getCurrentVoice() {
  * @param {string} selected
  */
 function setCurrentVoice(selected) {
-	const config = getConfig();
-	setConfig({
-		voice: selected,
-		isOracleButtonVisible: config.isOracleButtonVisible
-	});
+	setConfig("voice", selected);
 }
 
 /**
@@ -92,11 +91,7 @@ function getOracleButtonVisibility() {
  * @param {boolean} shouldBeVisible
  */
 function setOracleButtonVisiblity(shouldBeVisible) {
-	const config = getConfig();
-	setConfig({
-		voice: config.voice,
-		isOracleButtonVisible: shouldBeVisible
-	});
+	setConfig("isOracleButtonVisible", shouldBeVisible);
 }
 
 function sendToggleMessage(shouldBeVisible, callback) {
