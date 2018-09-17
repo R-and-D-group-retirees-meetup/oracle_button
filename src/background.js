@@ -51,56 +51,36 @@ function setConfig(config) {
  * @returns {string}
  */
 function getCurrentVoice() {
-<<<<<<< HEAD
 	const config = getConfig();
 	return config.voice;
-=======
-	const current = localStorage.current;
-	return current ? current : DEFAULT_VOICE;
->>>>>>> 3be92b064f13b4e10450c6c94c00e6f4a747c711
 }
 
 /**
  * @param {string} selected
  */
 function setCurrentVoice(selected) {
-<<<<<<< HEAD
 	const config = getConfig();
 	setConfig({
 		voice: selected,
 		isOracleButtonVisible: config.isOracleButtonVisible
 	});
-=======
-	localStorage.current = selected;
->>>>>>> 3be92b064f13b4e10450c6c94c00e6f4a747c711
 }
 
 /**
  * @returns {boolean}
  */
 function getOracleButtonVisibility() {
-<<<<<<< HEAD
 	return getConfig().isOracleButtonVisible;
-=======
-	const isOracleButtonVisible = localStorage.isOracleButtonVisible;
-	return isOracleButtonVisible ? isOracleButtonVisible : true;
->>>>>>> 3be92b064f13b4e10450c6c94c00e6f4a747c711
 }
 
 /**
  * @param {boolean} shouldBeVisible
  */
 function setOracleButtonVisiblity(shouldBeVisible) {
-<<<<<<< HEAD
 	const config = getConfig();
 	setConfig({
 		voice: config.voice,
 		isOracleButtonVisible: shouldBeVisible
-=======
-	localStorage.isOracleButtonVisible = shouldBeVisible;
-	sendToggleMessage(shouldBeVisible, () => {
-			return;
->>>>>>> 3be92b064f13b4e10450c6c94c00e6f4a747c711
 	});
 }
 
@@ -115,12 +95,8 @@ function sendToggleMessage(shouldBeVisible, callback) {
 };
 
 function say() {
-<<<<<<< HEAD
 	const current = getConfig().voice;
 	const audioURL = chrome.extension.getURL(`sounds/${current}/oracle.wav`);
-=======
-	const audioURL = chrome.extension.getURL(`sounds/${getCurrentVoice()}/oracle.wav`);
->>>>>>> 3be92b064f13b4e10450c6c94c00e6f4a747c711
 	const audio = new Audio();
 	audio.src = audioURL;
 	audio.play();
