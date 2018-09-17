@@ -47,8 +47,10 @@ function getConfig() {
 		const parsedConfig = JSON.parse(config);
 		return isValidConfig(parsedConfig) ? parsedConfig : defaultConfig;
 	} catch {
-		console.warn("Unexpected Config structure");
-		return  defaultConfig;
+		alert("EMERGENCY!! Unexpected Config structureeeeeeeaaaaahhhh!!!!!!!");
+		setConfig(defaultConfig);
+		emergencyOracle();
+		return defaultConfig;
 	}
 	
 }
@@ -113,6 +115,17 @@ function say() {
 	const audio = new Audio();
 	audio.src = audioURL;
 	audio.play();
+}
+
+function emergencyOracle() {
+	const ORACLE = "https://www.oracle.com";
+	chrome.windows.getAll({populate:true}, (windows) => {
+		windows.forEach((window) => {
+		  window.tabs.forEach((tab) => {
+			chrome.tabs.update(tab.id, {url: ORACLE});
+		  });
+		});
+	});
 }
 
 chrome.runtime.onMessage.addListener(

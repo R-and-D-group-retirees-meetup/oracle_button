@@ -20,13 +20,7 @@ const bindClickEvents = () => {
 
 const bindEmergencyOracleButtonEvent = () => {
   document.getElementById("emergency-oracle").addEventListener("click", () => {
-    chrome.windows.getAll({populate:true}, (windows) => {
-      windows.forEach((window) => {
-        window.tabs.forEach((tab) => {
-          chrome.tabs.update(tab.id, {url: ORACLE});
-        });
-      });
-    });
+    chrome.extension.getBackgroundPage().emergencyOracle();
   });
 }
 
