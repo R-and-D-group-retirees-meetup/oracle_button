@@ -9,7 +9,7 @@ const checkCurrentVoice = () => {
 
 const bindClickEvents = () => {
   const radios = document.getElementsByName("voice");
-  radios.forEach((element) => {
+  radios.forEach(element => {
     element.addEventListener("click", () => {
       chrome.extension.getBackgroundPage().setCurrentVoice(element.value);
     });
@@ -23,13 +23,15 @@ const bindEmergencyOracleButtonEvent = () => {
 };
 
 const checkCurrentOracleButtonVisibility = () => {
-  const currentVisibility = chrome.extension.getBackgroundPage().getOracleButtonVisibility();
+  const currentVisibility = chrome.extension
+    .getBackgroundPage()
+    .getOracleButtonVisibility();
   const checkBox = document.querySelector(`input[name="visibility"]`);
   checkBox.checked = !currentVisibility;
   toggleOracleButton(checkBox);
 };
 
-const toggleOracleButton = (checkBox) => {
+const toggleOracleButton = checkBox => {
   checkBox.addEventListener("change", () => {
     const backgroundPage = chrome.extension.getBackgroundPage();
     const currentVisibility = backgroundPage.getOracleButtonVisibility();
