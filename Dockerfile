@@ -1,9 +1,10 @@
 FROM node:10.10.0
+MAINTAINER hieki <ksakahieki@gmail.com>"
 
 ENV ORA_ROOT /usr/src/oracle_button/
 WORKDIR $ORA_ROOT
 
-COPY ./package.json /usr/src/oracle_button/
+COPY ./package.json $ORA_ROOT
 
 RUN yarn --version && \
     yarn install
