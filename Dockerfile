@@ -1,5 +1,5 @@
 FROM node:10.10.0
-MAINTAINER hieki <ksakahieki@gmail.com>"
+LABEL mainainer="hieki <ksakahieki@gmail.com>"
 
 ENV ORA_ROOT /usr/src/oracle_button/
 WORKDIR $ORA_ROOT
