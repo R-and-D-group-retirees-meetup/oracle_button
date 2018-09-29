@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  node:
+    container_name: oracle-button
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/usr/src/oracle_button/
+    working_dir: /usr/src/oracle_button
+    command: yarn
